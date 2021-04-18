@@ -82,7 +82,7 @@ $(document).ready(function(){
     /* Si scriva una funzione che accetti tre argomenti, un array e due numeri (a più piccolo di b).
     La funzione ritornerà un nuovo array con i valori che hanno la posizione compresa tra i due numeri
     inseriti dall'utente (è possibile usare, ad esempio, for/foreach/filter */
-        const myArray = ['Paolo', 'Fabbio', 'Giulia', 'luca', 'Marco'];
+        /* const myArray = ['Paolo', 'Fabbio', 'Giulia', 'luca', 'Marco'];
 
         console.log(myArray);
 
@@ -98,10 +98,10 @@ $(document).ready(function(){
             min = parseInt(prompt('Inserisci un numero tra ' + min + 'e 5.').trim());
         }
 
-        console.log(min, max);
+        console.log(min, max); */
 
         // usando for
-        let newArray = [];
+        //let newArray = [];
         /* function filterArray(arr, min, max){
             for(let i = 0; i < arr.length; i++){
                 if(min <= i && i <= max){
@@ -119,12 +119,43 @@ $(document).ready(function(){
         console.log(newFiltrerArray); */
 
         // usando forEach
-        myArray.forEach((element, index) => {
+        /* myArray.forEach((element, index) => {
             if(min <= index && index <= max){
                 newArray.push(element);
                }
         })
-        console.log(newArray);
+        console.log(newArray); */
+
+
+
+        /* Dato un'array con dei capi d'abbigliamento - oggetti che contengono informazioni su nome modello,
+        tipologia e colore - si aggiunga a ciascun elemento una ulteriore proprietà che indichi il costo del prodotto.
+        Per inserire il costo del singolo prodotto si scriva una funzione che generi un numero random da 10 a 50
+        (potete sfruttare il map per aggiungere la nuova proprietà) */
+
+        //funzione i numeri random
+        let numeriRandom = (min, max) => {
+            return Math.floor(Math.random() * (max - min + 1 ) + min );
+        };
+
+        const arrayObj = [
+            {name: 'Laura', type: 'Vestito', color: 'Rosso',},
+            {name: 'Olga', type: 'Maglione', color: 'Verde',},
+            {name: 'Maria', type: 'Gonna', color: 'Viola',},
+            {name: 'Elza', type: 'Camicia', color: 'Bianco',},
+        ];
+
+        console.log(arrayObj);
+
+        const newArrayObj = arrayObj.map((element) =>{
+            console.log(element);
+            const newElement = {
+                ... element,
+                prezzo: numeriRandom(10, 100)
+            }
+            return newElement;
+        })
+        console.log(newArrayObj);
     })
 
     
