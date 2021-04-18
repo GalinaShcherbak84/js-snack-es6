@@ -3,7 +3,7 @@ $(document).ready(function(){
     
     // Creare un array di oggetti
     // Ogni oggetto descriverà una bici da corsa con le seguenti proprietà: nome e peso.
-    const bici = [
+    /* const bici = [
         {
             nome: 'bicicletta1',
             peso: 8,
@@ -76,6 +76,55 @@ $(document).ready(function(){
     
     function randomNumber (min, max){
         return Math.floor(Math.random()*(max - min + 1)) + min;
-    }
+    } */
     
+
+    /* Si scriva una funzione che accetti tre argomenti, un array e due numeri (a più piccolo di b).
+    La funzione ritornerà un nuovo array con i valori che hanno la posizione compresa tra i due numeri
+    inseriti dall'utente (è possibile usare, ad esempio, for/foreach/filter */
+        const myArray = ['Paolo', 'Fabbio', 'Giulia', 'luca', 'Marco'];
+
+        console.log(myArray);
+
+        let min = parseInt(prompt('Inserisci un numero tra 0 e 5.').trim());
+
+        while(isNaN(min) || min < 0 || min > myArray.length || min ==''){
+            min = parseInt(prompt('Inserisci un numero tra 0 e 5.').trim());
+        }
+
+        let max = parseInt(prompt('Inserisci un numero tra ' + min + ' e 5.').trim());
+
+        while(isNaN(max) || max <= min || max > myArray.length || max ==''){
+            min = parseInt(prompt('Inserisci un numero tra ' + min + 'e 5.').trim());
+        }
+
+        console.log(min, max);
+
+        // usando for
+        let newArray = [];
+        /* function filterArray(arr, min, max){
+            for(let i = 0; i < arr.length; i++){
+                if(min <= i && i <= max){
+                 newArray.push(arr[i]);
+                }
+            } 
+        }
+        filterArray(myArray, min, max);
+        console.log(newArray); 
+        
+        //usando filter
+        const newFiltrerArray = myArray.filter((element, index) => {
+            return min <= index && max >= index;
+        })
+        console.log(newFiltrerArray); */
+
+        // usando forEach
+        myArray.forEach((element, index) => {
+            if(min <= index && index <= max){
+                newArray.push(element);
+               }
+        })
+        console.log(newArray);
     })
+
+    
